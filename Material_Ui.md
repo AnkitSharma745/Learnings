@@ -1,4 +1,5 @@
 ## What is material ui ?
+
 Material UI (MUI) is a popular React UI framework that implements Google's Material Design guidelines. It provides a wide range of pre-built components like buttons, modals, cards, and more, which are customizable and designed for responsiveness, accessibility, and performance. MUI helps you build beautiful and professional-looking UIs quickly with less custom CSS or JS.
 
 ### Why use material UI ?
@@ -10,18 +11,19 @@ Material UI (MUI) is a popular React UI framework that implements Google's Mater
 - Community Support: With a large community, it's well-documented and constantly updated.
 
 ### Benefits of using material ui ?
+
 - Faster Development: With pre-built, customizable components, MUI speeds up the frontend development process.
 - Consistency: It ensures design consistency by adhering to Material Design guidelines.
 - Customization: You can create your own themes, adjust colors, typography, or override styles, making it adaptable to any design system.
 - Responsive and Accessible: Components are built with mobile-first design and accessibility in mind.
 - Integration: MUI integrates well with other React libraries and frameworks like Redux, React Router, and Formik.
+
 ### Draw backs of using material ui ?
 
 - Learning Curve: If you’re used to regular HTML/CSS or basic JSX, understanding MUI’s theming and component structure can be a bit challenging initially.
 - Performance: For very large applications with many customizations, performance can sometimes become an issue due to the size of the library.
 - Style Overriding: Overriding default styles can sometimes be tricky if you’re not familiar with MUI’s CSS-in-JS styling approach.
 - Bundle Size: MUI can increase your app’s bundle size, which may require optimization steps like tree shaking to avoid unused code.
-
 
 ### Can We Write Normal JSX and Material UI Together?
 
@@ -30,8 +32,8 @@ Yes, you can use normal JSX (HTML/CSS) and Material UI components together. MUI 
 For example:
 
 ```jsx
-import React from 'react';
-import { Button } from '@mui/material';
+import React from "react";
+import { Button } from "@mui/material";
 
 function MyComponent() {
   return (
@@ -49,6 +51,7 @@ export default MyComponent;
 ### Errors You May Encounter When Using Material UI in Normal JSX Code
 
 #### Style Conflicts:
+
 If you're using regular CSS styles and Material UI together, you may encounter conflicts due to how MUI uses **CSS-in-JS**. Material UI uses **emotion** or **styled-components** for styling, which can sometimes override or conflict with regular CSS rules.
 
 **Example:**
@@ -76,13 +79,14 @@ If you're using regular CSS styles and Material UI together, you may encounter c
 | **@mui/types**           | TypeScript type definitions for MUI                                       | Ensures full TypeScript support by providing type definitions, enabling autocomplete, type checking, and better developer experience when using MUI components in TypeScript projects.                     |
 | **@mui/envinfo**         | Environment information for debugging                                     | Collects information about the environment, useful for debugging issues and sharing with the MUI team when reporting bugs.                                                                                 |
 | **@mui/monorepo**        | Monorepo management for internal MUI development                          | Internal tooling used by the MUI team to manage their monorepo structure. This package isn't typically used by end developers.                                                                             |
----------------------------------------------------------------------------------------------------------------------
+
+---
 
 ### Let's see how to work with Material UI--------
 
-#### HTML code 
-```html
+#### HTML code
 
+```html
 <nav>
   <ul>
     <li><a href="#home">Home</a></li>
@@ -91,16 +95,16 @@ If you're using regular CSS styles and Material UI together, you may encounter c
   </ul>
 </nav>
 ```
+
 In Material UI, you'd use components like <AppBar>, <Toolbar>, and <Button> to achieve the same thing but with pre-built Material styles.
 
 ```javascript
-
-import React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
+import React from "react";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
 
 function Navbar() {
   return (
@@ -118,5 +122,244 @@ function Navbar() {
 }
 
 export default Navbar;
+```
 
+# React vs Material UI Components
+
+This file provides examples comparing standard HTML tags and their equivalent usage in React and Material UI.
+
+## 1. `<div>` vs MUI Box/Container
+
+### In normal React:
+
+```jsx
+<div className="container">Content inside div</div>
+```
+
+### In Material UI:
+
+```jsx
+import { Box, Container } from "@mui/material";
+
+<Container>
+  <Box>Content inside Box</Box>
+</Container>;
+```
+
+## 2. `<button>` vs MUI Button
+
+### In normal React:
+
+```jsx
+<button className="my-btn">Submit</button>
+```
+
+### In Material UI:
+
+```jsx
+import { Button } from "@mui/material";
+
+<Button variant="contained">Submit</Button>;
+```
+
+## 3. `<input>` vs MUI TextField
+
+### In normal React:
+
+```jsx
+<input type="text" placeholder="Enter name" />
+```
+
+### In Material UI:
+
+```jsx
+import { TextField } from "@mui/material";
+
+<TextField label="Enter name" variant="outlined" />;
+```
+
+## 4. `<h1> to <h6>` vs MUI Typography
+
+### In normal React:
+
+```jsx
+<h1>Heading 1</h1>
+<p>This is a paragraph.</p>
+```
+
+### In Material UI:
+
+```jsx
+import { Typography } from '@mui/material';
+
+<Typography variant="h1">Heading 1</Typography>
+<Typography variant="body1">This is a paragraph.</Typography>
+```
+
+## 5. `<ul> <li>` vs MUI List
+
+### In normal React:
+
+```jsx
+<ul>
+  <li>Item 1</li>
+  <li>Item 2</li>
+</ul>
+```
+
+### In Material UI:
+
+```jsx
+import { List, ListItem, ListItemText } from "@mui/material";
+
+<List>
+  <ListItem>
+    <ListItemText primary="Item 1" />
+  </ListItem>
+  <ListItem>
+    <ListItemText primary="Item 2" />
+  </ListItem>
+</List>;
+```
+
+## 6. `<img>` vs MUI Avatar
+
+### In normal React:
+
+```jsx
+<img src="path/to/image.jpg" alt="Profile" />
+```
+
+### In Material UI:
+
+```jsx
+import { Avatar } from "@mui/material";
+
+<Avatar alt="Profile" src="path/to/image.jpg" />;
+```
+
+## 7. `<table>` vs MUI Table
+
+### In normal React:
+
+```jsx
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>John</td>
+      <td>25</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+### In Material UI:
+
+```jsx
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+} from "@mui/material";
+
+<TableContainer component={Paper}>
+  <Table>
+    <TableHead>
+      <TableRow>
+        <TableCell>Name</TableCell>
+        <TableCell>Age</TableCell>
+      </TableRow>
+    </TableHead>
+    <TableBody>
+      <TableRow>
+        <TableCell>John</TableCell>
+        <TableCell>25</TableCell>
+      </TableRow>
+    </TableBody>
+  </Table>
+</TableContainer>;
+```
+
+## 8. `<form>` vs MUI FormControl
+
+### In normal React:
+
+```jsx
+<form>
+  <input type="text" placeholder="Enter name" />
+  <button type="submit">Submit</button>
+</form>
+```
+
+### In Material UI:
+
+```jsx
+import { TextField, Button, FormControl } from "@mui/material";
+
+<FormControl>
+  <TextField label="Enter name" variant="outlined" />
+  <Button variant="contained" type="submit">
+    Submit
+  </Button>
+</FormControl>;
+```
+
+## 9. `<nav>` vs MUI AppBar
+
+### In normal React:
+
+```jsx
+<nav>
+  <a href="/">Home</a>
+  <a href="/about">About</a>
+</nav>
+```
+
+### In Material UI:
+
+```jsx
+import { AppBar, Toolbar, Button } from "@mui/material";
+
+<AppBar position="static">
+  <Toolbar>
+    <Button color="inherit" href="/">
+      Home
+    </Button>
+    <Button color="inherit" href="/about">
+      About
+    </Button>
+  </Toolbar>
+</AppBar>;
+```
+
+## 10. `<select>` vs MUI Select
+
+### In normal React:
+
+```jsx
+<select>
+  <option value="option1">Option 1</option>
+  <option value="option2">Option 2</option>
+</select>
+```
+
+### In Material UI:
+
+```jsx
+import { Select, MenuItem } from "@mui/material";
+
+<Select defaultValue="option1">
+  <MenuItem value="option1">Option 1</MenuItem>
+  <MenuItem value="option2">Option 2</MenuItem>
+</Select>;
 ```
