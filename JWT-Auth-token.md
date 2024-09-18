@@ -1,4 +1,4 @@
-# Problem Statement: #### When you're working with JWT (JSON Web Token) authentication, after a user logs in, the backend will send the JWT token to the frontend. This token needs to be sent with every request that requires authentication. Here’s how you can handle it in your project:
+## Problem Statement: When you're working with JWT (JSON Web Token) authentication, after a user logs in, the backend will send the JWT token to the frontend. This token needs to be sent with every request that requires authentication. Here’s how you can handle it in your project:
 
 ### Store the JWT Token: After receiving the token from the backend (typically after login), store it securely in the client (browser). There are six options:
 
@@ -210,3 +210,52 @@ For **production environments**, I recommend **HTTP-Only Cookies**. If you're wo
 ### Security Breaks---------
 
 Cross-Site Scripting (XSS) and Cross-Site Request Forgery (CSRF) are two of the most common and dangerous security vulnerabilities that web applications can face. They can cause severe data breaches, account takeovers, and can compromise user privacy. Below is a detailed explanation of both, including their mechanisms, impacts, and mitigation strategies.
+
+1. Cross-Site Scripting (XSS)
+   What is XSS?
+   Cross-Site Scripting (XSS) is a vulnerability that allows attackers to inject malicious scripts into a trusted website or web application. When users visit a page with an XSS vulnerability, the malicious script is executed in their browser, giving the attacker access to sensitive data, cookies, or session tokens.
+
+Types of XSS:
+Stored XSS (Persistent XSS):
+
+The malicious script is stored on the server, such as in a database, and served to users when they access the page.
+Example Use Case: A user comments on a blog post and injects a malicious script into the comment section. Every time someone views the page, the script runs.
+Reflected XSS (Non-persistent XSS):
+
+The malicious script is immediately reflected off a web server and executed in the victim's browser. It’s typically embedded in a URL or form input.
+Example Use Case: An attacker sends an email with a malicious link containing a script. When the victim clicks the link, the script runs in their browser.
+DOM-based XSS:
+
+The malicious script is executed directly in the browser as a result of manipulating the Document Object Model (DOM) rather than interacting with the server.
+Example Use Case: An attacker injects a script via the browser's URL or local data, and the webpage’s JavaScript dynamically inserts it into the DOM.
+
+2. Cross-Site Request Forgery (CSRF)
+   What is CSRF?
+   Cross-Site Request Forgery (CSRF) is an attack that tricks a user into performing an unwanted action on a website where they are authenticated. The attack works by exploiting the user's session (i.e., their login) with a website to send malicious requests on their behalf.
+
+How CSRF Works:
+The user is logged into a web application (e.g., an online banking app).
+The attacker sends a link or embeds a form into a webpage that the user visits.
+When the user clicks the link or the form is submitted automatically, a request is sent to the banking app using the user’s session.
+The banking app processes the request as if it were sent by the legitimate user, allowing the attacker to perform actions like transferring money.
+Use Case of CSRF:
+CSRF Use Case Example:
+Imagine a user is logged into their bank's website and their session is active. An attacker sends them an email with a link like:
+
+```javascript
+<a href="https://bank.com/transfer?amount=1000&toAccount=attackerAccount">
+  Click here to claim your prize
+</a>
+```
+
+If the user clicks the link, their browser sends the request to the bank because the user is still logged in. The bank, without realizing the request was forged, transfers the money from the user’s account to the attacker’s account.
+
+Real-World Impact of CSRF:
+Unauthorized Actions: Attackers can change account details, make unauthorized purchases, or transfer money.
+Data Breaches: Attackers can force the user to download sensitive data or change security settings.
+System Misuse: In web applications, an attacker can trick users into sending emails, deleting data, or modifying access controls.
+
+Real-World Impact of CSRF:
+Unauthorized Actions: Attackers can change account details, make unauthorized purchases, or transfer money.
+Data Breaches: Attackers can force the user to download sensitive data or change security settings.
+System Misuse: In web applications, an attacker can trick users into sending emails, deleting data, or modifying access controls.
