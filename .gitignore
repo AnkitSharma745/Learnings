@@ -16,7 +16,6 @@ obj/
 .idea/
 
 # VS Code
-.vscode/
 
 # NuGet packages (usually not committed)
 packages/
@@ -27,3 +26,4 @@ packages/
 # OS files
 .DS_Store
 Thumbs.db
+config.bat
